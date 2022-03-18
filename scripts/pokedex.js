@@ -6,7 +6,7 @@ const fetchPokemon = () => {
     fetch(url).then((res) => {
         if (res.status != "200") {
             console.log(res);
-            pokeImage("./pokemon-sad.gif")
+            pokeImage("./assets/pokemon-sad.gif", "#pokeImg")
         }
         else {
             return res.json();
@@ -29,17 +29,6 @@ const fetchPokemon = () => {
                     pokeType += element.toString();
                 }
             }
-
-           /*  let pokeAbilities = "";
-            for (let i = 0; i < data.abilities.length; i++) {
-                const element = data.abilities[i].ability.name;
-                if (i < data.abilities.length - 1) {
-                    pokeAbilities += element.toString() + " / ";
-                }
-                else {
-                    pokeAbilities += element.toString();
-                }
-            } */
 
             let pokeAbilities = [];
             for (let i = 0; i < data.abilities.length; i++) {
@@ -66,12 +55,31 @@ const fetchPokemon = () => {
             set_data("#pokeType", "Type: " + pokeType.toUpperCase());
 
         
-            pokeImage(pokeImg);
+            pokeImage(pokeImg, "#pokeImg");
             set_stats(pokeStats);
             set_abilities(pokeAbilities);
         }
     });
 }
+
+const fetchImgName = (url) => {
+
+
+    return [pokeName, pokeImage]
+}
+
+
+const fetchPokemonGrid = (nImages) => {
+    const gridContainer = document.querySelector(".grid-container")
+
+    for (let i = 0; i < nImages; i++) {
+
+        /* const img = document.createElement("img")
+        img.src =  */
+    }
+
+}
+
 
 
 const set_data = (cssSelector, text) => {
@@ -103,8 +111,8 @@ const set_stats = (stats) => {
     set_data('#sp',stats[5]);
 }
 
-const pokeImage = (url) => {
-    const pokePhoto = document.querySelector("#pokeImg");
+const pokeImage = (url, selector) => {
+    const pokePhoto = document.querySelector(selector);
     pokePhoto.src = url;
 }
 

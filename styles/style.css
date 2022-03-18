@@ -24,3 +24,9 @@
     background: #C5DFDE;
 }
 
+
+#pokeAbilities p{
+display: inline-block;
+background-color: antiquewhite;
+margin: 1em 0.5em;
+}
