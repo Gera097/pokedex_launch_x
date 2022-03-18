@@ -1,0 +1,29 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0%;
+    margin: 0%;
+}
+
+.pokedex-top {
+    width: auto;
+    height: 100px;
+    background-color: #CA2035;
+}
+
+.pokedex-bottom {
+    width: auto;
+    height: 100px;
+    background-color: #CA2035;
+}
+
+.pokedex-screen {
+    margin-left: 5%;
+    margin-right: 5%;
+    min-width: fit-content;
+    height: 500px;
+    background: #C5DFDE;
+}
+
+#pokeAbilities {
+    height: 20px;
+}

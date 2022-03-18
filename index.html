@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="pokedex-top"></div>
+    <section class="pokedex-screen">
+        <h1 id="pokemon_identifier"></h1>
+        <img src="./assets/pokeball.png" id="pokeImg" width="100px">
+        <p id="pokeType">Type: ?</p>
+        <p id="pokeHeight">Height: ?</p>
+        <p id="pokeWeight">Weight: ?</p>
+        <p id="pokeAbilities"></p>
+
+        <section class="stats">
+            <table class="stats_table">
+                <tr id="stat_name">
+                    <th>HP</th>
+                    <th>ATTACK</th>
+                    <th>DEFENSE</th>
+                    <th>SPECIAL_ATTACK</th>
+                    <th>SPECIAL_DEFENSE</th>
+                    <th>SPEED</th>
+                </tr>
+                <tr id="stat_value"> 
+                    <td id="hp">?</td>
+                    <td id="atk">?</td>
+                    <td id="df">?</td>
+                    <td id="satk">?</td>
+                    <td id="sdf">?</td>
+                    <td id="sp">?</td>
+                </tr>
+            </table>
+        </section>
+
+        <input type="text" placeholder="pikachu" id="pokeName" name="pokeName">
+        <button onclick="fetchPokemon()">Cambiar Imagen</button>
+    </section>
+    <div class="pokedex-bottom"></div>
+</body>
+<footer>
+    <script src="./scripts/pokedex.js"></script>
+</footer>
+</html>
