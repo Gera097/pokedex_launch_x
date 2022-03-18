@@ -30,7 +30,7 @@ const fetchPokemon = () => {
                 }
             }
 
-            let pokeAbilities = "";
+           /*  let pokeAbilities = "";
             for (let i = 0; i < data.abilities.length; i++) {
                 const element = data.abilities[i].ability.name;
                 if (i < data.abilities.length - 1) {
@@ -39,13 +39,20 @@ const fetchPokemon = () => {
                 else {
                     pokeAbilities += element.toString();
                 }
+            } */
+
+            let pokeAbilities = [];
+            for (let i = 0; i < data.abilities.length; i++) {
+                const element = data.abilities[i].ability.name;
+                pokeAbilities.push(element);
             }
-            
+
+            console.log(pokeAbilities)
+
             let pokeStats = [];
             for (let i = 0; i < data.stats.length; i++) {
-                /* const stat_name = data.stats[i].stat.name; */
                 const stat_value = data.stats[i].base_stat;
-                pokeStats.push([/* stat_name, */ stat_value]);
+                pokeStats.push([stat_value]);
             }
 
             let pokeWeight = data.weight;
@@ -57,21 +64,34 @@ const fetchPokemon = () => {
             set_data("#pokeHeight", "Height: "+pokeHeight);
             set_data("#pokeWeight", "Weight: "+pokeWeight);
             set_data("#pokeType", "Type: " + pokeType.toUpperCase());
-            set_data("#pokeAbilities", pokeAbilities.toLocaleUpperCase());
-            
 
+        
             pokeImage(pokeImg);
             set_stats(pokeStats);
-
-            console.log(pokeImg);
-            console.log(pokeStats);
+            set_abilities(pokeAbilities);
         }
     });
 }
 
 
 const set_data = (cssSelector, text) => {
-    document.querySelector(cssSelector).textContent = text;
+    document.querySelector(cssSelector).innerHTML = text;
+}
+
+const set_abilities = (abilities) => {
+    const container = document.querySelector("#pokeAbilities");
+
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+    if (container.childElementCount == 0) {
+        for (let i = 0; i < abilities.length; i++) {
+            const line = document.createElement("p");
+            line.id = "line_" + i;
+            line.textContent = abilities[i];
+            container.appendChild(line);
+        }
+    }
 }
 
 const set_stats = (stats) => {
