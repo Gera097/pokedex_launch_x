@@ -49,9 +49,11 @@
 
         <section class="pokemon-list">
             <nav>
-                <button id="previous_page"><i class="fi fi-sr-angle-small-left"></i></button>
+               <!--  <button id="previous_page"><i class="fi fi-sr-angle-small-left" onclick="previous_page()"></i></button> -->
+                <input type="number" name="pageSelector" id="pageSelector" value="1" min="1" step="1" onchange="fetchPokemonGrid()">
+               <!--  <button id="next_page"><i class="fi fi-sr-angle-small-right" onclick="next_page()"></i></button>  -->
                 <input type="number" name="nImages" id="nImages" min="5" max="25" step="5" value="5" onchange="fetchPokemonGrid()">
-                <button id="next_page"><i class="fi fi-sr-angle-small-right"></i></button> 
+                
             </nav>
 
             <div class="grid-container">

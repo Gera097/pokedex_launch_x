@@ -76,15 +76,17 @@ async function fetchImgName(url) {
    
 async function fetchPokemonGrid(){
     const gridContainer = document.querySelector(".grid-container");
-
-    const nImages = document.querySelector("#nImages").value;
+    const page = Number(document.querySelector("#pageSelector").value);
+    const nImages = Number(document.querySelector("#nImages").value);
+    const offset = Number(page * nImages - nImages);
+    console.log('offset: ' + offset);
     
     /* Cleanning the html content before creating new elements*/
     while (gridContainer.firstChild) {
         gridContainer.removeChild(gridContainer.firstChild);
     }
 
-    for (let i = 0; i < nImages; i++) {
+    for (let i = offset; i < nImages + offset; i++) {
         await fetchImgName(`https://pokeapi.co/api/v2/pokemon/${i+1}`).then((imgName) => {
             const button = document.createElement("button");
             const img = document.createElement("img");
@@ -101,8 +103,20 @@ async function fetchPokemonGrid(){
     }
 
 }
+/* 
+const next_page = () => {
+    let nPage = document.querySelector("#pageSelector").value;
+    nPage += 1;
+    fetchPokemonGrid();
+}
 
-
+const previous_page = () => {
+    let nPage = document.querySelector("#pageSelector").value;
+    if (nPage > 1) {
+        nPage -= 1;
+        fetchPokemonGrid();
+    }
+} */
 
 const set_data = (cssSelector, text) => {
     document.querySelector(cssSelector).innerHTML = text;
