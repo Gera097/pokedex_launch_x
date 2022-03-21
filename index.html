@@ -7,12 +7,13 @@
     <title>Pokédex</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <script src="./scripts/pokedex.js"></script>
 </head>
-<body>
+<body onload="fetchPokemonGrid()">
     <div class="pokedex-top"></div>
     <section class="pokedex-screen">
         <h1 id="pokemon_identifier"></h1>
-        <img src="./assets/pokeball.png" id="pokeImg" width="100px">
+        <img src="./assets/pokeball.png" id="pokeImg" width="150px">
         <p id="pokeType">Type: ?</p>
         <p id="pokeHeight">Height: ?</p>
         <p id="pokeWeight">Weight: ?</p>
@@ -49,6 +50,7 @@
         <section class="pokemon-list">
             <nav>
                 <button id="previous_page"><i class="fi fi-sr-angle-small-left"></i></button>
+                <input type="number" name="nImages" id="nImages" min="5" max="25" step="5" value="5" onchange="fetchPokemonGrid()">
                 <button id="next_page"><i class="fi fi-sr-angle-small-right"></i></button> 
             </nav>
 
@@ -60,7 +62,4 @@
     </section>
     <div class="pokedex-bottom"></div>
 </body>
-<footer onload="fetchPokemonGrid()">
-    <script src="./scripts/pokedex.js"></script>
-</footer>
 </html>

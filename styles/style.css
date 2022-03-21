@@ -11,6 +11,8 @@
 }
 
 .pokedex-bottom {
+    position: sticky;
+    bottom: 0px;
     width: auto;
     height: 100px;
     background-color: #CA2035;
@@ -20,7 +22,7 @@
     margin-left: 5%;
     margin-right: 5%;
     min-width: fit-content;
-    height: 500px;
+    height:max-content;
     background: #C5DFDE;
 }
 

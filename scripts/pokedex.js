@@ -1,5 +1,5 @@
 const fetchPokemon = () => {
-    const pokeNameInput = document.getElementById("pokeName");
+    const pokeNameInput = document.querySelector("#pokeName");
     let pokeName = pokeNameInput.value;
     pokeName = pokeName.toLowerCase();
     const url = `https://pokeapi.co/api/v2/pokemon/${pokeName}`;
@@ -14,11 +14,11 @@ const fetchPokemon = () => {
     }).then((data) => {
         if (data) {
             console.log(data);
+
             let pokeImg = data.sprites.front_default;
             let name = data.name;
             let id = data.id;
 
-        
             let pokeType = "";
             for (let i = 0; i < data.types.length; i++) {
                 const element = data.types[i].type.name;
@@ -62,20 +62,42 @@ const fetchPokemon = () => {
     });
 }
 
-const fetchImgName = (url) => {
+async function fetchImgName(url) {
 
+    const response = await fetch(url);
+    const dataJSON = await response.json();
+    let pokeImg = dataJSON.sprites.front_default;
+    let pokeName = dataJSON.name;
 
-    return [pokeName, pokeImage]
+    return [pokeImg, pokeName]
+
 }
+    
+   
+async function fetchPokemonGrid(){
+    const gridContainer = document.querySelector(".grid-container");
 
-
-const fetchPokemonGrid = (nImages) => {
-    const gridContainer = document.querySelector(".grid-container")
+    const nImages = document.querySelector("#nImages").value;
+    
+    /* Cleanning the html content before creating new elements*/
+    while (gridContainer.firstChild) {
+        gridContainer.removeChild(gridContainer.firstChild);
+    }
 
     for (let i = 0; i < nImages; i++) {
-
-        /* const img = document.createElement("img")
-        img.src =  */
+        await fetchImgName(`https://pokeapi.co/api/v2/pokemon/${i+1}`).then((imgName) => {
+            const button = document.createElement("button");
+            const img = document.createElement("img");
+            img.src = imgName[0];
+            gridContainer.appendChild(button);
+            button.appendChild(img);
+            button.value = imgName[1];
+            button.addEventListener('click', function () {
+                const pokemonID = document.querySelector("#pokeName");
+                pokemonID.value = this.value;
+                fetchPokemon();
+            });
+        });
     }
 
 }
@@ -101,6 +123,7 @@ const set_abilities = (abilities) => {
         }
     }
 }
+
 
 const set_stats = (stats) => {
     set_data('#hp',stats[0]);
