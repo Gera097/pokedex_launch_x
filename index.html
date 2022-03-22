@@ -10,7 +10,9 @@
     <script src="./scripts/pokedex.js"></script>
 </head>
 <body onload="fetchPokemonGrid()">
-    <div class="pokedex-top"></div>
+
+    
+    <div class="pokedex-top pokedex"></div>
     <section class="pokedex-screen">
         <h1 id="pokemon_identifier"></h1>
         <img src="./assets/pokeball.png" id="pokeImg" width="150px">
@@ -49,9 +51,9 @@
 
         <section class="pokemon-list">
             <nav>
-               <!--  <button id="previous_page"><i class="fi fi-sr-angle-small-left" onclick="previous_page()"></i></button> -->
+            <!--  <button id="previous_page"><i class="fi fi-sr-angle-small-left" onclick="previous_page()"></i></button> -->
                 <input type="number" name="pageSelector" id="pageSelector" value="1" min="1" step="1" onchange="fetchPokemonGrid()">
-               <!--  <button id="next_page"><i class="fi fi-sr-angle-small-right" onclick="next_page()"></i></button>  -->
+            <!--  <button id="next_page"><i class="fi fi-sr-angle-small-right" onclick="next_page()"></i></button>  -->
                 <input type="number" name="nImages" id="nImages" min="5" max="25" step="5" value="5" onchange="fetchPokemonGrid()">
                 
             </nav>
@@ -62,6 +64,6 @@
 
         </section>
     </section>
-    <div class="pokedex-bottom"></div>
+    <div class="pokedex pokedex-bottom"></div>
 </body>
 </html>

@@ -2,28 +2,51 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 0%;
     margin: 0%;
-}
-
-.pokedex-top {
-    width: auto;
-    height: 100px;
-    background-color: #CA2035;
-}
-
-.pokedex-bottom {
-    position: sticky;
-    bottom: 0px;
-    width: auto;
-    height: 100px;
-    background-color: #CA2035;
+    box-sizing: border-box;
+    
 }
 
 .pokedex-screen {
+    overflow-y: auto;
+    position: absolute;
     margin-left: 5%;
     margin-right: 5%;
-    min-width: fit-content;
-    height:max-content;
-    background: #C5DFDE;
+    bottom: 10%;
+    height: 80%;
+    padding: 10%;
+    /*Background gradient*/
+    background: rgb(9,152,230);
+background: -moz-radial-gradient(circle, rgba(9,152,230,1) 0%, rgba(24,112,193,1) 80%, rgba(52,100,219,0.8803827751196173) 100%);
+background: -webkit-radial-gradient(circle, rgba(9,152,230,1) 0%, rgba(24,112,193,1) 80%, rgba(52,100,219,0.8803827751196173) 100%);
+background: radial-gradient(circle, rgba(9,152,230,1) 0%, rgba(24,112,193,1) 80%, rgba(52,100,219,0.8803827751196173) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0998e6",endColorstr="#3464db",GradientType=1);
+}
+
+.pokedex {
+    background-image:url("../assets/pokedex_small.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 15%;
+    width: 100%;
+    position: fixed;
+}
+
+@media only screen and (min-width: 400px) {
+    .pokedex {
+        background-image:url("../assets/pokedex_large.png");
+    }
+}
+    
+
+
+.pokedex-top {
+    z-index: 1;
+    top: 0px;
+}
+
+.pokedex-bottom {
+    bottom: 0px;
+    transform: rotate(180deg);
 }
 
 

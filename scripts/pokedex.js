@@ -36,7 +36,7 @@ const fetchPokemon = () => {
                 pokeAbilities.push(element);
             }
 
-            console.log(pokeAbilities)
+            /* console.log(pokeAbilities) */
 
             let pokeStats = [];
             for (let i = 0; i < data.stats.length; i++) {
