@@ -5,7 +5,7 @@ const fetchPokemon = () => {
     const url = `https://pokeapi.co/api/v2/pokemon/${pokeName}`;
     fetch(url).then((res) => {
         if (res.status != "200") {
-            console.log(res);
+            /* console.log(res); */
             pokeImage("./assets/pokemon-sad.gif", "#pokeImg")
         }
         else {
@@ -79,7 +79,7 @@ async function fetchPokemonGrid(){
     const page = Number(document.querySelector("#pageSelector").value);
     const nImages = Number(document.querySelector("#nImages").value);
     const offset = Number(page * nImages - nImages);
-    console.log('offset: ' + offset);
+    /* console.log('offset: ' + offset); */
     
     /* Cleanning the html content before creating new elements*/
     while (gridContainer.firstChild) {
