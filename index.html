@@ -8,50 +8,36 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
     <script src="./scripts/pokedex.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body onload="fetchPokemonGrid()">
 
     <div class="pokedex-container">
         <div class="pokedex-top pokedex"></div>
-        <section class="pokedex-screen">
+        <div class="pokedex-screen">
 
             <section class="pokemon-information">
-                <h1 id="pokemon_identifier"></h1>
-                <img src="./assets/pokeball.png" id="pokeImg" width="150px">
-                <p id="pokeType">Type: ?</p>
-                <p id="pokeHeight">Height: ?</p>
-                <p id="pokeWeight">Weight: ?</p>
+                <div class="pokemon-characteristics">
+                    <h1 id="pokemon_identifier"></h1>
+                    <img src="./assets/pokeball.png" id="pokeImg" width="150px">
+                    <p id="pokeType">Type: ?</p>
+                    <p id="pokeHeight">Height: ?</p>
+                    <p id="pokeWeight">Weight: ?</p>
 
-                <div id="pokeAbilities">
+                    <div id="pokeAbilities">
 
+                    </div>
                 </div>
-                
 
                 <section class="stats">
-                    <table class="stats_table">
-                        <tr id="stat_name">
-                            <th>HP</th>
-                            <th>ATTACK</th>
-                            <th>DEFENSE</th>
-                            <th>SPECIAL_ATTACK</th>
-                            <th>SPECIAL_DEFENSE</th>
-                            <th>SPEED</th>
-                        </tr>
-                        <tr id="stat_value"> 
-                            <td id="hp">?</td>
-                            <td id="atk">?</td>
-                            <td id="df">?</td>
-                            <td id="satk">?</td>
-                            <td id="sdf">?</td>
-                            <td id="sp">?</td>
-                        </tr>
-                    </table>
+                    <div id="statsChart"></div>
                 </section>
             </section>
-
-            <input type="text" placeholder="pikachu" id="pokeName" name="pokeName">
-            <button id="change_pokemon" onclick="fetchPokemon()">Change Pokemon</button>
-
+            <nav class="select-pokemon">
+                <input type="text" placeholder="pikachu" id="pokeName" name="pokeName">
+                <button id="change_pokemon" onclick="fetchPokemon()">Change Pokemon</button>
+            </nav>
+           
             <section class="pokemon-list">
                 <nav>
                 <!--  <button id="previous_page"><i class="fi fi-sr-angle-small-left" onclick="previous_page()"></i></button> -->
@@ -66,7 +52,7 @@
                 </div>
 
             </section>
-        </section>
+        </div>
         <div class="pokedex pokedex-bottom"></div>
     </div>
 </body>

@@ -3,8 +3,13 @@
     padding: 0%;
     margin: 0%;
     box-sizing: border-box;
-    
 }
+
+h1{
+    color: aliceblue;
+    font-size:xx-large;
+}
+
 body {
     display: grid;
     justify-items: center;
@@ -77,4 +82,27 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0998e6",endCo
 display: inline-block;
 background-color: antiquewhite;
 margin: 1em 0.5em;
+}
+
+
+.pokemon-information {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+.pokemon-characteristics {
+    height: 4fr;
+    /* background-color: brown;  */ 
+}
+
+
+.stats {
+    height: 4fr;
+    background-color: rgba(240, 248, 255, 0.959);
+    border-radius: 5%;
+}
+
+.select-pokemon {
+    
 }

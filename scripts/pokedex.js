@@ -41,7 +41,7 @@ const fetchPokemon = () => {
             let pokeStats = [];
             for (let i = 0; i < data.stats.length; i++) {
                 const stat_value = data.stats[i].base_stat;
-                pokeStats.push([stat_value]);
+                pokeStats.push(stat_value);
             }
 
             let pokeWeight = data.weight;
@@ -56,7 +56,8 @@ const fetchPokemon = () => {
 
         
             pokeImage(pokeImg, "#pokeImg");
-            set_stats(pokeStats);
+            create_chart(pokeStats, name);
+            /* set_stats(pokeStats); */
             set_abilities(pokeAbilities);
         }
     });
@@ -153,3 +154,42 @@ const pokeImage = (url, selector) => {
     pokePhoto.src = url;
 }
 
+
+const create_chart = (stats, pokeName) => {
+
+    const container = document.querySelector("#statsChart");
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+
+    const pokeChart = document.createElement("canvas")
+    container.appendChild(pokeChart);
+
+    const statsData = {
+        labels: ["HP", "ATTACK", "DEFENSE", "SPECIAL_ATTACK", "SPECIAL_DEFENSE", "SPEED"],
+        datasets: [{
+            label: pokeName,
+            backgroundColor: "rgba(0,250,0,0.75)",
+            data: stats
+        }]
+    };
+
+    const chartOptions = {
+        scale: {
+            ticks: {
+                beginAtZero: true,
+                min: 0,
+                max: 10,
+                step: 1
+            }
+        }
+        
+    }
+    
+    var radarchart = new Chart(pokeChart, {
+        type: "radar",
+        data: statsData,
+        options: chartOptions
+    });
+
+}
