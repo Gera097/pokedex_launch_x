@@ -168,22 +168,35 @@ const create_chart = (stats, pokeName) => {
     const statsData = {
         labels: ["HP", "ATTACK", "DEFENSE", "SPECIAL_ATTACK", "SPECIAL_DEFENSE", "SPEED"],
         datasets: [{
-            label: pokeName,
+            label: 'Stats value',
             backgroundColor: "rgba(0,250,0,0.75)",
             data: stats
         }]
     };
 
     const chartOptions = {
-        scale: {
-            ticks: {
-                beginAtZero: true,
-                min: 0,
-                max: 10,
-                step: 1
+        plugins: {
+            legend: {
+                display: false
+            }
+        },
+        scales: {
+            r: {
+                angleLines: {
+                    color: 'white'
+                },
+                grid: {
+                    color: 'white',
+                    lineWidth: 2
+                },
+                pointLabels: {
+                    color: 'white'
+                },
+                ticks: {
+                    color: 'blue'
+                }
             }
         }
-        
     }
     
     var radarchart = new Chart(pokeChart, {

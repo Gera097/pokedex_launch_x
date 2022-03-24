@@ -10,6 +10,10 @@ h1{
     font-size:xx-large;
 }
 
+p {
+    color: aliceblue;
+}
+
 body {
     display: grid;
     justify-items: center;
@@ -80,10 +84,11 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0998e6",endCo
 
 #pokeAbilities p{
 display: inline-block;
-background-color: antiquewhite;
+background-color: rgba(34, 34, 194, 0.479);
+padding: 0.5em;
+border-radius: 0.5em;
 margin: 1em 0.5em;
 }
-
 
 .pokemon-information {
     display: grid;
@@ -92,17 +97,28 @@ margin: 1em 0.5em;
 }
 
 .pokemon-characteristics {
-    height: 4fr;
-    /* background-color: brown;  */ 
+    position: relative;
+    background-color: rgba(223, 234, 245, 0.103);
+    border-radius: 5%;
+    
 }
 
+#pokeImg {
+    position: relative;
+    width: 50%;
+    height: auto;
+    margin-left: 25%;
+}
+
+.pokemon-characteristics p {
+    text-align: center;
+}
 
 .stats {
-    height: 4fr;
-    background-color: rgba(240, 248, 255, 0.959);
+    background-color: rgba(223, 234, 245, 0.103);
     border-radius: 5%;
 }
 
-.select-pokemon {
-    
+button {
+    border-radius: 0.5em;
 }
