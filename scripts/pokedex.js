@@ -89,10 +89,13 @@ async function fetchPokemonGrid(){
 
     for (let i = offset; i < nImages + offset; i++) {
         await fetchImgName(`https://pokeapi.co/api/v2/pokemon/${i+1}`).then((imgName) => {
+            const anchor = document.createElement('a');
+            anchor.href = '#top';
             const button = document.createElement("button");
             const img = document.createElement("img");
             img.src = imgName[0];
-            gridContainer.appendChild(button);
+            gridContainer.appendChild(anchor);
+            anchor.appendChild(button);
             button.appendChild(img);
             button.value = imgName[1];
             button.addEventListener('click', function () {

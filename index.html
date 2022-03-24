@@ -15,7 +15,7 @@
     <div class="pokedex-container">
         <div class="pokedex-top pokedex"></div>
         <div class="pokedex-screen">
-
+            <a name="top"></a>
             <section class="pokemon-information">
                 <div class="pokemon-characteristics">
                     <h1 id="pokemon_identifier"></h1>
@@ -34,17 +34,23 @@
                 </section>
             </section>
             <nav class="select-pokemon">
-                <input type="text" placeholder="pikachu" id="pokeName" name="pokeName">
+                <input type="text" placeholder="Pokemon Name or ID" id="pokeName" name="pokeName">
                 <button id="change_pokemon" onclick="fetchPokemon()">Change Pokemon</button>
             </nav>
            
             <section class="pokemon-list">
                 <nav>
                 <!--  <button id="previous_page"><i class="fi fi-sr-angle-small-left" onclick="previous_page()"></i></button> -->
-                    <input type="number" name="pageSelector" id="pageSelector" value="1" min="1" step="1" onchange="fetchPokemonGrid()">
+                    <div>
+                        <p>Page: </p>
+                        <input type="number" name="pageSelector" id="pageSelector" value="1" min="1" step="1" onchange="fetchPokemonGrid()">
+                    </div>
                 <!--  <button id="next_page"><i class="fi fi-sr-angle-small-right" onclick="next_page()"></i></button>  -->
-                    <input type="number" name="nImages" id="nImages" min="5" max="25" step="5" value="5" onchange="fetchPokemonGrid()">
-                    
+
+                    <div>
+                        <p>Show: </p>
+                        <input type="number" name="nImages" id="nImages" min="5" max="25" step="5" value="5" onchange="fetchPokemonGrid()">
+                    </div>    
                 </nav>
 
                 <div class="grid-container">
